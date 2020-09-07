@@ -1,5 +1,5 @@
-# Twitter-Chatbot
-Twitter Chat Bot 
+# Slack-Bot
+Slack Chat Bot 
 
 ## Built With
 

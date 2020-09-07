@@ -1,11 +1,72 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (6.0.3.2)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+      zeitwerk (~> 2.2, >= 2.2.2)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
+    celluloid (0.17.4)
+      celluloid-essentials
+      celluloid-extras
+      celluloid-fsm
+      celluloid-pool
+      celluloid-supervision
+      timers (>= 4.1.1)
+    celluloid-essentials (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-extras (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-fsm (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-io (0.17.3)
+      celluloid (>= 0.17.2)
+      nio4r (>= 1.1)
+      timers (>= 4.1.1)
+    celluloid-pool (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-supervision (0.20.6)
+      timers (>= 4.1.1)
+    concurrent-ruby (1.1.7)
+    faraday (0.17.3)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.14.0)
+      faraday (>= 0.7.4, < 1.0)
+    faraday_middleware-parse_oj (0.3.2)
+      faraday (~> 0.9)
+      faraday_middleware (>= 0.9.1, < 1.0)
+      oj (>= 2.0, < 4.0)
+    giphy (3.0.0)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.9)
+      faraday_middleware-parse_oj (~> 0.3)
+      launchy (~> 2.4)
+    gli (2.19.2)
+    hashie (4.1.0)
+    httparty (0.18.1)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
+    i18n (1.8.5)
+      concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    mime-types (3.3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2020.0512)
+    minitest (5.14.2)
+    multi_xml (0.6.0)
+    multipart-post (2.1.1)
+    nio4r (2.5.3)
+    oj (3.10.14)
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
+    public_suffix (4.0.6)
     rainbow (3.0.0)
     rexml (3.2.4)
     rubocop (0.81.0)
@@ -17,13 +78,35 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
     ruby-progressbar (1.10.1)
+    slack-ruby-bot (0.16.0)
+      hashie
+      slack-ruby-client (>= 0.14.0)
+    slack-ruby-client (0.14.6)
+      activesupport
+      faraday (>= 0.9)
+      faraday_middleware
+      gli
+      hashie
+      websocket-driver
+    thread_safe (0.3.6)
+    timers (4.3.2)
+    tzinfo (1.2.7)
+      thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
+    websocket-driver (0.7.3)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.5)
+    zeitwerk (2.4.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  celluloid-io
+  giphy
+  httparty
   rubocop (~> 0.81.0)
+  slack-ruby-bot
 
 BUNDLED WITH
    2.1.2
