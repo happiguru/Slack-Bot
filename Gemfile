@@ -1,3 +1,7 @@
 source 'https://rubygems.org'
 require 'rubygems'
 gem 'rubocop', '~>0.81.0'
+gem 'slack-ruby-bot'
+gem 'celluloid-io'
+gem 'httparty'
+gem 'giphy'
