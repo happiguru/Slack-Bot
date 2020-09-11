@@ -2,7 +2,7 @@
 require 'sinatra/base'
 require 'slack-ruby-bot'
 require 'slack-ruby-client'
-require_relative '../env.rb'
+require_relative '../.env.rb'
 
 SLACK_CONFIG = {
     slack_client_id: SLACK_CLIENT_ID,
