@@ -33,7 +33,7 @@ def create_slack_cleint(slack_api_secret)
     Slack::Web::Client.new
 end
 
-class Auth < Sinatra::base
+class Auth < Sinatra::Base
     add_to_slack_button = %(
         <a href="https://slack.com/oauth/v2/authorize?user_scope=#{BOT_SCOPE}&client_id=#{SLACK_CONFIG[:slack_client_id]}"><img src="https://api.slack.com/img/sign_in_with_slack.png" /></a>
     )
@@ -70,7 +70,7 @@ class Auth < Sinatra::base
 
             status 200
             body 'Gloraay! Authentication succeeded!'
-        rescue Slack::Web::Api:;Error => e
+        rescue Slack::Web::Api::Error => e
 
             status 403
             body "Oooops! Authentication failed! Reason: #{e.message}<br/>#{add_to_slack_button}"
