@@ -1,2 +1,2 @@
 # Twitter-Chatbot
-Twitter Chat Bot 
+Slack Bot 
