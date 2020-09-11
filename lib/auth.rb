@@ -20,3 +20,15 @@ end
 
 # Set OAuth Scope for the Slack-Bot
 BOT_SCOPE = 'bot'.freeze
+
+# Initialize a hash variable to hold team information
+$team = {}
+
+# Helper to keep all logic together
+def create_slack_cleint(slack_api_secret)
+    Slack.configure do |config|
+        config.token = slack_api_secret
+        raise 'Missing API token' unless config.token
+    end
+    Slack::Web::Client.new
+end
