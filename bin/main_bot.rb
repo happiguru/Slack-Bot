@@ -1,3 +1,3 @@
-require '../lib/eyebot.rb'
+require '../lib/auth.rb'
 
 Bot.run
