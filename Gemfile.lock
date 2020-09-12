@@ -65,6 +65,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   rubocop (~> 0.81.0)
@@ -73,7 +74,7 @@ DEPENDENCIES
   slack-ruby-client (~> 0.7.7)
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 2.6.6p146
 
 BUNDLED WITH
    2.1.4

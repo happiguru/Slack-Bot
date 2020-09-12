@@ -22,7 +22,7 @@ end
 BOT_SCOPE = 'bot'.freeze
 
 # Initialize a hash variable to hold team information
-# team = {}
+$team = {}
 
 # Helper to keep all logic together
 def create_slack_cleint(slack_api_secret)
@@ -34,13 +34,19 @@ def create_slack_cleint(slack_api_secret)
 end
 
 class Auth < Sinatra::Base
-  add_to_slack_button = %(
-        <a href="https://slack.com/oauth/v2/authorize?user_scope=#{BOT_SCOPE}&client_id=
-        #{SLACK_CONFIG[:slack_client_id]}">
-        <img src="https://api.slack.com/img/sign_in_with_slack.png" /></a>
+  # add_to_slack_button = %(
+  #       <a href="https://slack.com/oauth/v2/authorize?user_scope=#{BOT_SCOPE}&client_id=
+  #       #{SLACK_CONFIG[:slack_client_id]}">
+  #       <img src="https://api.slack.com/img/sign_in_with_slack.png" /></a>
+  #   )
+  
+    add_to_slack_button = %(
+      <a href=\"https://slack.com/oauth/authorize?scope=#{BOT_SCOPE}&client_id=#{SLACK_CONFIG[:slack_client_id]}&redirect_uri=#{SLACK_CONFIG[:redirect_uri]}\">
+         <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" />
+      </a>
     )
 
-  get '/' do
+  get '/events' do
     redirect '/begin_auth'
   end
 
@@ -62,13 +68,13 @@ class Auth < Sinatra::Base
       )
 
       team_id = response['team_id']
-      team[team_id] = {
+      $team[team_id] = {
         user_access_token: response['access_token'],
         bot_user_id: response['bot']['bot_user_id'],
         bot_access_token: response['bot']['bot_access_token']
       }
 
-      team[team_id]['client'] = create_slack_cleint(response['bot']['bot_access_token'])
+      $team[team_id]['client'] = create_slack_cleint(response['bot']['bot_access_token'])
 
       status 200
       body 'Gloraay! Authentication succeeded!'

@@ -8,8 +8,8 @@ class SlackBot
 
   def self.slack_json
     instruct_file = File.read('../initialize.json')
-    instruct_json = JSON.parse(instruct_file)
-    instruct_json['attachments']
+    slack_json = JSON.parse(instruct_file)
+    slack_json['attachments']
     # attachments = instruct_json['attachments']
   end
 
@@ -18,7 +18,7 @@ class SlackBot
   end
 
   def self.new
-    instruct_json.deep_dup
+    slack_json.deep_dup
   end
 
   def self.update_i(team_id, user_id, index_item)
