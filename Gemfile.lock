@@ -73,8 +73,5 @@ DEPENDENCIES
   slack-ruby-bot
   slack-ruby-client (~> 0.7.7)
 
-RUBY VERSION
-   ruby 2.6.6p146
-
 BUNDLED WITH
    2.1.4
