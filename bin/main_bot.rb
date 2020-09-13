@@ -2,15 +2,16 @@ require 'sinatra/base'
 require 'slack-ruby-client'
 
 class SlackBot
+
   def self.welcome_text
-    'Welcome to Slack Bot Team! Glad to have you! Please complete the steps below'
+   return 'Welcome to Slack Bot Team! Glad to have you! Please complete the steps below'
   end
 
   def self.slack_json
     instruct_file = File.read('../initialize.json')
     slack_json = JSON.parse(instruct_file)
-    slack_json['attachments']
-    # attachments = instruct_json['attachments']
+    # slack_json['attachments']
+    attachments = slack_json['attachments']
   end
 
   def self.items
@@ -18,7 +19,7 @@ class SlackBot
   end
 
   def self.new
-    slack_json.deep_dup
+    slack_json
   end
 
   def self.update_i(team_id, user_id, index_item)
@@ -80,7 +81,7 @@ class Events
     user_id = event_data['user']
     if teams[team_id][user_id]
       channel = event_data['item']['channel']
-      ts = event_data['item']['ts']
+      time_stamp = event_data['item']['ts']
       SlackBot.update_i(team_id, user_id, SlackBot.items[:reaction])
       send_response(team_id, user_id, channel, ts)
     end
@@ -90,9 +91,9 @@ class Events
     user_id = event_data['user']
     if teams[team_id][user_id]
       channel = event_data['item']['channel']
-      ts = event_data['item']['message']['ts']
+      time_stamp = event_data['item']['message']['ts']
       SlackBot.update_i(team_id, user_id, SlackBot.items[:pin])
-      send_response(team_id, user_id, channel, ts)
+      send_response(team_id, user_id, channel, time_stamp)
     end
   end
 
@@ -102,16 +103,16 @@ class Events
 
       if event_data['attachments'] && event_data['attachments'].first['is_share']
         user_id = event_data['user']
-        ts = event_data['attachments'].first['ts']
+        time_stamp = event_data['attachments'].first['ts']
         channel = event_data['channel']
         SlackBot.update_i(team_id, user_id, SlackBot.items[:share])
-        send_response(team_id, user_id, channel, ts)
+        send_response(team_id, user_id, channel, time_stamp)
       end
     end
   end
 
   def self.send_response(team_id, user_id, channel = user_id, time_stamp = nil)
-    if ts
+    if time_stamp
       teams[team_id]['client'].chat_update(
         as_user: 'true',
         channel: channel,
@@ -129,3 +130,6 @@ class Events
     end
   end
 end
+
+x = SlackBot.new
+x.welcome_text
