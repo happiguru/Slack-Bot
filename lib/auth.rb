@@ -22,7 +22,7 @@ end
 BOT_SCOPE = 'bot'.freeze
 
 # Initialize a hash variable to hold team information
-$team = {}
+@team = {}
 
 # Helper to keep all logic together
 def create_slack_cleint(slack_api_secret)
@@ -62,13 +62,13 @@ class Auth < Sinatra::Base
       )
 
       team_id = response['team_id']
-      $team[team_id] = {
+      @team[team_id] = {
         user_access_token: response['access_token'],
         bot_user_id: response['bot']['bot_user_id'],
         bot_access_token: response['bot']['bot_access_token']
       }
 
-      $team[team_id]['client'] = create_slack_cleint(response['bot']['bot_access_token'])
+      @team[team_id]['client'] = create_slack_cleint(response['bot']['bot_access_token'])
 
       status 200
       body 'Gloraay! Authentication succeeded!'
