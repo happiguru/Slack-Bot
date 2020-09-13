@@ -2,16 +2,15 @@ require 'sinatra/base'
 require 'slack-ruby-client'
 
 class SlackBot
-
   def self.welcome_text
-   return 'Welcome to Slack Bot Team! Glad to have you! Please complete the steps below'
+    'Welcome to Slack Bot Team! Glad to have you! Please complete the steps below'
   end
 
   def self.slack_json
     instruct_file = File.read('../initialize.json')
     slack_json = JSON.parse(instruct_file)
-    # slack_json['attachments']
-    attachments = slack_json['attachments']
+    slack_json['attachments']
+    # attachments = slack_json['attachments']
   end
 
   def self.items
@@ -83,7 +82,7 @@ class Events
       channel = event_data['item']['channel']
       time_stamp = event_data['item']['ts']
       SlackBot.update_i(team_id, user_id, SlackBot.items[:reaction])
-      send_response(team_id, user_id, channel, ts)
+      send_response(team_id, user_id, channel, time_stamp)
     end
   end
 
@@ -130,6 +129,3 @@ class Events
     end
   end
 end
-
-x = SlackBot.new
-x.welcome_text

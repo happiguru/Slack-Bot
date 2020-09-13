@@ -34,11 +34,10 @@ def create_slack_cleint(slack_api_secret)
 end
 
 class Auth < Sinatra::Base
-  
-    add_to_slack_button = %(
-      <a href=\"https://slack.com/oauth/authorize?scope=#{BOT_SCOPE}&client_id=#{SLACK_CONFIG[:slack_client_id]}&redirect_uri=#{SLACK_CONFIG[:redirect_uri]}\">
-         <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" />
-      </a>
+  add_to_slack_button = %(
+      <a href=\"https://slack.com/oauth/authorize?scope=#{BOT_SCOPE}&client_id=#{SLACK_CONFIG[:slack_client_id]}
+      &redirect_uri=#{SLACK_CONFIG[:redirect_uri]}\">
+      <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png"/></a>
     )
 
   get '/events' do
