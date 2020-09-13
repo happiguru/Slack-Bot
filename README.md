@@ -48,7 +48,7 @@ Slack Chat Bot
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/happiguru/Twitter-Chatbot/issues).
+Feel free to check the [issues page](https://github.com/happiguru/Slack-Bot/issues).
 
 ## Show your support
 
