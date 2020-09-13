@@ -11,18 +11,26 @@ Slack Chat Bot
 
 ## Live Demo
 
-[Live Demo Link](https://repl.it/@happiguru/..)
+[Live Demo Link](https://repl.it/@happiguru/Slack-Bot#config.ru)
 
 
 ### Prerequisites
 
 - Browser (Google Chrome, Mozilla Firefox, Safari or any other browser)
+- Slack api
+- ngrok
 
 ### Setup
 
-- Download or clone the repository's files [github repo](https://github.com/happiguru/Twitter-Chatbot)
+- Download or clone the repository's files [github repo](https://github.com/happiguru/Slack-Bot/tree/setup)
+- Run bundler install
+- run gem install bundle
+- run https://yourwebname.ngrok.io:9292
 
-####Get set up with Twitter To begin, you'll need to register your application with Twitter and get the proper keys. Log into or sign up for a Twitter account, and scroll down to "Manage Your Apps." Click "Create a New App" and fill out the form with the app's details. Once you're on the app's management page, select the "Permissions" tab. Make sure access is set to "Read and Write." Finally, navigate to the "Keys and Access Tokens" tab. Note your "Consumer Key" and "Consumer Key Secret" tokens, and initialize the app's Access Tokens ("Access Token" and "Access Token Secret"). Keep these four keys for later.
+####
+- Create a Slack App
+- run rackup
+- run https://yourwebname.ngrok.io/events //Open to approve slack app
 
 ### Tests
 
