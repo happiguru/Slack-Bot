@@ -34,11 +34,6 @@ def create_slack_cleint(slack_api_secret)
 end
 
 class Auth < Sinatra::Base
-  # add_to_slack_button = %(
-  #       <a href="https://slack.com/oauth/v2/authorize?user_scope=#{BOT_SCOPE}&client_id=
-  #       #{SLACK_CONFIG[:slack_client_id]}">
-  #       <img src="https://api.slack.com/img/sign_in_with_slack.png" /></a>
-  #   )
   
     add_to_slack_button = %(
       <a href=\"https://slack.com/oauth/authorize?scope=#{BOT_SCOPE}&client_id=#{SLACK_CONFIG[:slack_client_id]}&redirect_uri=#{SLACK_CONFIG[:redirect_uri]}\">
