@@ -38,4 +38,3 @@ class SlackBot
     self.slackbot_json.deep_dup
   end
 end
-
