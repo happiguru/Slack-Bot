@@ -3,15 +3,15 @@ require_relative '../lib/api.rb'
 require_relative '../lib/events.rb'
 
 class SlackBot
-  # attr_accessor :team_id
-  # attr_accessor :user_id
-  # attr_accessor :index_item
+  attr_accessor :team_id
+  attr_accessor :user_id
+  attr_accessor :index_item
 
-  # def initialize
-  #   @team_id = team_id
-  #   @user_id = user_id
-  #   @index_item = index_item
-  # end
+  def initialize
+    @team_id = team_id
+    @user_id = user_id
+    @index_item = index_item
+  end
 
   def self.welcome_text
     'Welcome to Slack Bot Team! Glad to have you! Please complete the steps below'
