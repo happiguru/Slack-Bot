@@ -3,19 +3,19 @@ class Events
       user_id = event_data['user']['id']
   
       @teams[team_id][user_id] = {
-        bot_content: SlackBot.new
+        slackbot_content: SlackBot.new
       }
-      send_response(team_id, user_id)
+      self.send_response(team_id, user_id)
     end
   
     def self.reaction_added(team_id, event_data)
       user_id = event_data['user']
       return unless @teams[team_id][user_id]
-  
+    
       channel = event_data['item']['channel']
       time_stamp = event_data['item']['ts']
-      SlackBot.update_i(team_id, user_id, SlackBot.items[:reaction])
-      send_response(team_id, user_id, channel, time_stamp)
+      SlackBot.update_item(team_id, user_id, SlackBot.items[:reaction])
+      self.send_response(team_id, user_id, channel, time_stamp)
     end
   
     def self.pin_added(team_id, event_data)
@@ -24,8 +24,8 @@ class Events
   
       channel = event_data['item']['channel']
       time_stamp = event_data['item']['message']['ts']
-      SlackBot.update_i(team_id, user_id, SlackBot.items[:pin])
-      send_response(team_id, user_id, channel, time_stamp)
+      SlackBot.update_item(team_id, user_id, SlackBot.items[:pin])
+      self.send_response(team_id, user_id, channel, time_stamp)
     end
   
     def self.message(team_id, event_data)
@@ -37,8 +37,8 @@ class Events
       user_id = event_data['user']
       time_stamp = event_data['attachments'].first['ts']
       channel = event_data['channel']
-      SlackBot.update_i(team_id, user_id, SlackBot.items[:share])
-      send_response(team_id, user_id, channel, time_stamp)
+      SlackBot.update_item(team_id, user_id, SlackBot.items[:share])
+      self.send_response(team_id, user_id, channel, time_stamp)
     end
   
     def self.send_response(team_id, user_id, channel = user_id, time_stamp = nil)
@@ -48,14 +48,14 @@ class Events
           channel: channel,
           time_stamp: ts,
           text: SlackBot.welcome_text,
-          attachments: teams[team_id][user_id][:bot_content]
+          attachments: @teams[team_id][user_id][:slackbot_content]
         )
       else
-        teams[team_id]['client'].chat_postMessage(
+        @teams[team_id]['client'].chat_postMessage(
           as_user: 'true',
           channel: channel,
           text: SlackBot.welcome_text,
-          attachments: teams[team_id][user_id][:bot_content]
+          attachments: @teams[team_id][user_id][:slackbot_content]
         )
       end
     end
