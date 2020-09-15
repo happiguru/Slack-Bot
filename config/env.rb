@@ -1,7 +1,4 @@
-#OAuth Access Token
-
-SLACK_API_TOKEN = 'xoxb-1341131635942-1371806137072-mMv2rmaKF60hzHylmFoN76wj'
-
-    # Slack.configure do |config|
-    # config.Token = ENV['SLACK_API_TOKEN']
-    # end
+SLACK_CLIENT_ID = '1341131635942.1360372154340'.freeze
+SLACK_API_SECRET = '06b10f5556f32133fc09a5b7346b6b06'.freeze
+SLACK_REDIRECT_URI = ''.freeze
+SLACK_VERIFICATION_TOKEN = 'Ib5HmVLSe1AVCrYyeruT6Bjr'.freeze
