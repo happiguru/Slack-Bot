@@ -8,6 +8,9 @@ Slack Chat Bot
 - Linters: Rubocop
 - Testing: RSpec
 
+## Sample
+
+<img src ="image/bot.gif">
 
 ## Live Demo
 
