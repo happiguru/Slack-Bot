@@ -18,7 +18,7 @@ Slack Chat Bot
 
 - Browser (Google Chrome, Mozilla Firefox, Safari or any other browser)
 - Slack api
-- ngrok
+- Download and install [ngrok](https://ngrok.com/download)
 
 ### Setup
 
