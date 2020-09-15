@@ -20,20 +20,27 @@ Slack Chat Bot
 ### Prerequisites
 
 - Browser (Google Chrome, Mozilla Firefox, Safari or any other browser)
-- Slack api
-- Download and install [ngrok](https://ngrok.com/download)
+- Personal Slack Workspace
+- Create a Slack App with "bot scope"
+- Download and install [ngrok](https://ngrok.com/download) server 
 
 ### Setup
 
 - Download or clone the repository's files [github repo](https://github.com/happiguru/Slack-Bot/tree/setup)
-- Run bundler install
-- run gem install bundle
-- run https://yourwebname.ngrok.io:9292
+- Run `bundler install`
+- Run `gem install bundle`
+- Run `ngrok http 9292`
 
-####
-- Create a Slack App
-- run rackup
-- run https://yourwebname.ngrok.io/events //Open to approve slack app
+### App Permissions
+
+- Ensure your newly created App has the following Permissions
+1. message.im
+2. pin_added
+3. reaction_added
+4. team_join
+
+- run `rackup` from home directory contain the clone files
+- run [https://yourwebname.ngrok.io/events] on web browser to give your app approval on Slack
 
 ### Tests
 
