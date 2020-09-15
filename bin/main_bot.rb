@@ -18,7 +18,7 @@ class SlackBot
   end
 
   def self.update_item(team_id, user_id, index_item)
-    slackbot_item = $teams[team_id][user_id][:slackbot_content][index_item]
+    slackbot_item = @teams[team_id][user_id][:slackbot_content][index_item]
     slackbot_item['text'].sub!(':white_large_square:', ':white_check_mark:')
     slackbot_item['color'] = '#F47FF1'
   end
@@ -35,6 +35,6 @@ class SlackBot
   end
 
   def self.new
-    self.slackbot_json.deep_dup
+    slackbot_json.deep_dup
   end
 end
