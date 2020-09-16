@@ -14,7 +14,7 @@ class SlackBot
   end
 
   def welcome_text
-    puts 'Welcome to Slack Bot Team! Glad to have you! Please complete the steps below'
+    'Welcome to Slack Bot Team! Glad to have you! Please complete the steps below'
   end
 
   def update_item(team_id, user_id, index_item)
