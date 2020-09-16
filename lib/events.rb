@@ -1,5 +1,5 @@
 class Events
-  def self.user_join(team_id, event_data)
+  def user_join(team_id, event_data)
     user_id = event_data['user']['id']
 
     @teams[team_id][user_id] = {
@@ -8,7 +8,7 @@ class Events
     send_response(team_id, user_id)
   end
 
-  def self.reaction_added(team_id, event_data)
+  def reaction_added(team_id, event_data)
     user_id = event_data['user']
     return unless @teams[team_id][user_id]
 
@@ -18,7 +18,7 @@ class Events
     send_response(team_id, user_id, channel, time_stamp)
   end
 
-  def self.pin_added(team_id, event_data)
+  def pin_added(team_id, event_data)
     user_id = event_data['user']
     return unless @teams[team_id][user_id]
 
@@ -28,7 +28,7 @@ class Events
     send_response(team_id, user_id, channel, time_stamp)
   end
 
-  def self.message(team_id, event_data)
+  def message(team_id, event_data)
     user_id = event_data['user']
     return if user_id == @teams[team_id][:bot_user_id]
 
