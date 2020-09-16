@@ -1,4 +1,3 @@
-
 require_relative '../bin/main_bot.rb'
 
 describe SlackBot do
