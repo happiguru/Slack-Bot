@@ -1,4 +1,4 @@
-# Eyebot Slack class
+# SlackBot class
 require 'sinatra/base'
 require 'slack-ruby-bot'
 require 'slack-ruby-client'
