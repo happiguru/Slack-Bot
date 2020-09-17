@@ -27,7 +27,6 @@ class SlackBot
     slackbot_file = File.read('initialized.json')
     slackbot_json = JSON.parse(slackbot_file)
     slackbot_json['attachments']
-    # attachments = slackbot_json['attachments']
   end
 
   def items
