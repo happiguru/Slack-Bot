@@ -14,4 +14,18 @@ describe SlackBot do
       expect(s.slackbot_json).to be_truthy
     end
   end
+
+  describe '#items' do
+    it 'give a list of selections to be updated based on the slack reactions' do
+      s = SlackBot.new
+      expect(s.items).to be_truthy
+    end
+  end
+
+  describe '#new' do
+    it 'returns a deep copy of the harsh file returned by the slack_json method' do
+      s = SlackBot.new
+      expect(s.news).to be_truthy
+    end
+  end
 end

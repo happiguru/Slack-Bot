@@ -33,7 +33,7 @@ class SlackBot
     { reaction: 0, pin: 1, share: 2 }
   end
 
-  def new
-    slackbot_json.deep_dup
+  def news
+    slackbot_json.dup
   end
 end
