@@ -1,3 +1,2 @@
 .env.rb
 config\env.rb
-spec/events_spec.rb
